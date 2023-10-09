@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#0D377C">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/full_bezel"
+        android:layout_marginBottom="@dimen/full_bezel">
+
+        <app.rive.runtime.kotlin.RiveAnimationView
+            android:id="@+id/ticket_animation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:layout_marginBottom="-100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/guideline_top" />
+
+        <TextView
+            android:id="@+id/ticket_points"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="110"
+            android:gravity="center_horizontal"
+            android:layout_gravity="bottom"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="60sp"
+            android:visibility="visible"
+            android:paddingStart="@dimen/half_touch_target"
+            android:paddingEnd="@dimen/half_touch_target"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_top"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <TextView
+            android:id="@+id/ticket_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            tools:text="You're One Step Closer!"
+            android:visibility="visible"
+            android:paddingStart="@dimen/half_touch_target"
+            android:paddingEnd="@dimen/half_touch_target"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline_top"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_h2"/>
+
+        <TextView
+            android:id="@+id/ticket_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:visibility="visible"
+            android:paddingStart="@dimen/half_touch_target"
+            android:paddingEnd="@dimen/half_touch_target"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ticket_title"
+            android:textStyle="normal"
+            android:textColor="@color/white"
+            tools:text="Spin again and increase your changes to win @1,000,000"
+            android:textSize="@dimen/text_size_h6"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/auxiliar"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/elevation"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ticket_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingTop="@dimen/half_bezel"
+            android:paddingBottom="@dimen/half_bezel"
+            android:layout_marginStart="@dimen/half_touch_target"
+            android:layout_marginEnd="@dimen/half_touch_target"
+            android:layout_marginBottom="@dimen/half_touch_target"
+            android:visibility="visible"
+            android:alpha="0"
+            app:iconTint="@null"
+            tools:text="OK"
+            android:textColor="@color/mainWhite"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_h6"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/ticket_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</FrameLayout>

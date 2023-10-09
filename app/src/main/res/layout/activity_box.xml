@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <app.rive.runtime.kotlin.RiveAnimationView
+            android:id="@+id/loot_coin_animation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/top_of_visible_view" />
+
+        <ImageView
+            android:id="@+id/loot_coin_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/top_of_visible_view"/>
+            <!--android:background="@drawable/coin_glow_stars"/>-->
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/top_of_visible_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:barrierAllowsGoneWidgets="false"
+            app:constraint_referenced_ids="guideline_top, auxiliar"/>
+
+        <TextView
+            android:id="@+id/loot_points"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="110"
+            android:gravity="center_horizontal"
+            android:layout_gravity="bottom"
+            android:textColor="@color/mainBlack"
+            android:textStyle="bold"
+            android:textSize="60sp"
+            android:visibility="gone"
+            android:paddingStart="@dimen/half_touch_target"
+            android:paddingEnd="@dimen/half_touch_target"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_top"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <TextView
+            android:id="@+id/loot_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            tools:text="Well done!"
+            android:visibility="gone"
+            android:paddingStart="@dimen/half_touch_target"
+            android:paddingEnd="@dimen/half_touch_target"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline_top"
+            android:textColor="@color/mainBlack"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_h2"/>
+
+        <TextView
+            android:id="@+id/loot_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:alpha="0"
+            android:visibility="gone"
+            android:paddingStart="@dimen/half_touch_target"
+            android:paddingEnd="@dimen/half_touch_target"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loot_title"
+            android:textStyle="normal"
+            tools:text="Come back every day for a new box"
+            android:textSize="@dimen/text_size_h6"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/auxiliar"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/elevation"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loot_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingTop="@dimen/half_bezel"
+            android:paddingBottom="@dimen/half_bezel"
+            android:layout_marginStart="@dimen/half_touch_target"
+            android:layout_marginEnd="@dimen/half_touch_target"
+            android:layout_marginBottom="@dimen/half_touch_target"
+            android:visibility="visible"
+            app:iconTint="@null"
+            android:text="OK"
+            android:textColor="@color/mainWhite"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_h6"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/double_bezel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</FrameLayout>
